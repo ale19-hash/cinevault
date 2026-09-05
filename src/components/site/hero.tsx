@@ -14,7 +14,8 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
       <div
         className="absolute inset-0 -z-10"
         style={{
-          background: `radial-gradient(1200px 500px at 15% -10%, hsl(${spotlight.hue} 60% 88%) 0%, transparent 60%), var(--background)`,
+          background:
+            "radial-gradient(1200px 500px at 15% -10%, color-mix(in oklch, var(--secondary) 45%, var(--background)) 0%, transparent 60%), var(--background)",
         }}
         aria-hidden="true"
       />
