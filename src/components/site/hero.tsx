@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Tent, Star } from "lucide-react";
+import { ChevronRight, Tent, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TitlePoster } from "@/components/site/title-poster";
@@ -41,9 +41,21 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
         </Link>
 
         <div className="flex flex-col justify-center gap-4">
-          <Badge className="w-fit gap-1 bg-primary text-primary-foreground hover:bg-primary">
-            <Tent className="size-3" /> Center ring pick
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge className="w-fit gap-1 bg-primary text-primary-foreground hover:bg-primary">
+              <Tent className="size-3" /> Center ring pick
+            </Badge>
+            {featured.length > 1 && (
+              <button
+                type="button"
+                onClick={() => setSelected((s) => (s + 1) % featured.length)}
+                aria-label="Show the next center ring pick"
+                className="inline-flex size-6 items-center justify-center rounded-full border border-primary text-primary transition hover:bg-primary hover:text-primary-foreground"
+              >
+                <ChevronRight className="size-3.5" />
+              </button>
+            )}
+          </div>
           <h1 className="font-heading text-3xl tracking-tight text-primary sm:text-5xl">
             {spotlight.name}
           </h1>
