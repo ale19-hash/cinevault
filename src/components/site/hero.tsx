@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Film, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { PosterArt } from "@/components/site/poster-art";
+import { TitlePoster } from "@/components/site/title-poster";
 import type { TitleSummary } from "@/lib/types";
 
 export function Hero({ featured }: { featured: TitleSummary[] }) {
@@ -21,7 +21,13 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
 
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[220px_1fr] md:py-16">
         <div className="hidden w-full max-w-[220px] md:block">
-          <PosterArt name={spotlight.name} hue={spotlight.hue} type={spotlight.type} size="lg" />
+          <TitlePoster
+            name={spotlight.name}
+            hue={spotlight.hue}
+            type={spotlight.type}
+            posterUrl={spotlight.poster_url}
+            size="lg"
+          />
         </div>
 
         <div className="flex flex-col justify-center gap-4">
@@ -71,7 +77,7 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
                 href={`/title/${t.slug}`}
                 className="w-24 shrink-0 transition hover:-translate-y-1 sm:w-28"
               >
-                <PosterArt name={t.name} hue={t.hue} type={t.type} size="sm" />
+                <TitlePoster name={t.name} hue={t.hue} type={t.type} posterUrl={t.poster_url} size="sm" />
                 <p className="mt-1 truncate text-xs text-muted-foreground">{t.name}</p>
               </Link>
             ))}

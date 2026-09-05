@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Clock, Globe2, Tv2, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { PosterArt } from "@/components/site/poster-art";
+import { TitlePoster } from "@/components/site/title-poster";
 import { FavoriteButton } from "@/components/site/favorite-button";
 import { CastRow } from "@/components/site/cast-row";
 import { ReviewList } from "@/components/site/review-list";
@@ -36,7 +36,13 @@ export default async function TitlePage({ params }: { params: Params }) {
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <div className="grid gap-8 md:grid-cols-[240px_1fr]">
         <div className="mx-auto w-full max-w-[240px] md:mx-0">
-          <PosterArt name={title.name} hue={title.hue} type={title.type} size="lg" />
+          <TitlePoster
+            name={title.name}
+            hue={title.hue}
+            type={title.type}
+            posterUrl={title.poster_url}
+            size="lg"
+          />
         </div>
 
         <div className="space-y-4">

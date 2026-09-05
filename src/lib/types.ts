@@ -11,6 +11,7 @@ export interface TitleSummary {
   critic_score: number;
   director: string;
   tagline: string | null;
+  poster_url: string | null;
   hue: number;
   featured: boolean;
   genres: string[];

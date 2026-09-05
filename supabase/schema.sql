@@ -35,10 +35,14 @@ create table if not exists titles (
   synopsis        text not null,
   language        text not null default 'English',
   country         text not null default 'USA',
+  poster_url      text, -- optional real poster image; falls back to generated art when null
   hue             int  not null default 220 check (hue between 0 and 360), -- drives the generated poster art
   featured        boolean not null default false,
   created_at      timestamptz not null default now()
 );
+
+-- Safe to run against a database created before poster_url existed.
+alter table titles add column if not exists poster_url text;
 
 create index if not exists titles_type_idx on titles (type);
 create index if not exists titles_release_year_idx on titles (release_year);

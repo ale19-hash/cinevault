@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock, Tv2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { PosterArt } from "@/components/site/poster-art";
+import { TitlePoster } from "@/components/site/title-poster";
 import { RatingBadge } from "@/components/site/rating-badge";
 import { FavoriteButton } from "@/components/site/favorite-button";
 import type { TitleSummary } from "@/lib/types";
@@ -13,7 +13,7 @@ export function TitleCard({ title }: { title: TitleSummary }) {
       className="group block focus-visible:outline-none"
     >
       <div className="relative">
-        <PosterArt name={title.name} hue={title.hue} type={title.type} />
+        <TitlePoster name={title.name} hue={title.hue} type={title.type} posterUrl={title.poster_url} />
         <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-white/0 transition group-hover:ring-white/30 group-focus-visible:ring-2 group-focus-visible:ring-amber-400" />
         <RatingBadge score={title.critic_score} className="absolute left-2 top-2" />
         <FavoriteButton slug={title.slug} className="absolute right-2 top-2" />

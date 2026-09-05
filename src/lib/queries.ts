@@ -13,6 +13,7 @@ interface RawTitleRow {
   critic_score: number;
   director: string;
   tagline: string | null;
+  poster_url: string | null;
   hue: number;
   featured: boolean;
   title_genres: { genres: { name: string } | null }[] | null;
@@ -30,6 +31,7 @@ function toSummary(row: RawTitleRow): TitleSummary {
     critic_score: Number(row.critic_score),
     director: row.director,
     tagline: row.tagline,
+    poster_url: row.poster_url,
     hue: row.hue,
     featured: row.featured,
     genres: (row.title_genres ?? [])
@@ -45,7 +47,7 @@ export async function getAllTitles(): Promise<TitleSummary[]> {
     .from("titles")
     .select(
       `id, slug, name, type, release_year, runtime_minutes, seasons,
-       critic_score, director, tagline, hue, featured,
+       critic_score, director, tagline, poster_url, hue, featured,
        title_genres ( genres ( name ) )`
     )
     .order("critic_score", { ascending: false });
@@ -88,7 +90,7 @@ export async function getTitleBySlug(
     .from("titles")
     .select(
       `id, slug, name, type, release_year, runtime_minutes, seasons,
-       critic_score, director, tagline, synopsis, language, country, hue, featured,
+       critic_score, director, tagline, poster_url, synopsis, language, country, hue, featured,
        title_genres ( genres ( name ) ),
        title_cast ( character_name, sort_order, cast_members ( name ) ),
        reviews ( id, author_name, rating, body, created_at )`
