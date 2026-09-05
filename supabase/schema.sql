@@ -85,6 +85,14 @@ alter table title_genres  enable row level security;
 alter table title_cast    enable row level security;
 alter table reviews       enable row level security;
 
+drop policy if exists "public read genres"       on genres;
+drop policy if exists "public read cast_members" on cast_members;
+drop policy if exists "public read titles"       on titles;
+drop policy if exists "public read title_genres" on title_genres;
+drop policy if exists "public read title_cast"   on title_cast;
+drop policy if exists "public read reviews"      on reviews;
+drop policy if exists "public insert reviews"    on reviews;
+
 create policy "public read genres"       on genres        for select using (true);
 create policy "public read cast_members" on cast_members  for select using (true);
 create policy "public read titles"       on titles        for select using (true);
