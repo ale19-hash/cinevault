@@ -21,6 +21,7 @@ export interface CastEntry {
   name: string;
   character_name: string;
   sort_order: number;
+  photo_url: string | null;
 }
 
 export interface Review {

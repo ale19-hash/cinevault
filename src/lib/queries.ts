@@ -92,7 +92,7 @@ export async function getTitleBySlug(
       `id, slug, name, type, release_year, runtime_minutes, seasons,
        critic_score, director, tagline, poster_url, synopsis, language, country, hue, featured,
        title_genres ( genres ( name ) ),
-       title_cast ( character_name, sort_order, cast_members ( name ) ),
+       title_cast ( character_name, sort_order, cast_members ( name, photo_url ) ),
        reviews ( id, author_name, rating, body, created_at )`
     )
     .eq("slug", slug)
@@ -111,7 +111,7 @@ export async function getTitleBySlug(
     title_cast: {
       character_name: string;
       sort_order: number;
-      cast_members: { name: string } | null;
+      cast_members: { name: string; photo_url: string | null } | null;
     }[];
     reviews: {
       id: string;
@@ -132,6 +132,7 @@ export async function getTitleBySlug(
         name: c.cast_members?.name ?? "Unknown",
         character_name: c.character_name,
         sort_order: c.sort_order,
+        photo_url: c.cast_members?.photo_url ?? null,
       }))
       .sort((a, b) => a.sort_order - b.sort_order),
     reviews: (row.reviews ?? [])

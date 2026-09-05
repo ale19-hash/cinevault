@@ -13,9 +13,13 @@ create table if not exists genres (
 );
 
 create table if not exists cast_members (
-  id   serial primary key,
-  name text not null unique
+  id        serial primary key,
+  name      text not null unique,
+  photo_url text -- optional headshot; falls back to initials when null
 );
+
+-- Safe to run against a database created before photo_url existed.
+alter table cast_members add column if not exists photo_url text;
 
 -- ─────────────────────────────────────────────────────────────
 -- Core entity: a movie or TV show

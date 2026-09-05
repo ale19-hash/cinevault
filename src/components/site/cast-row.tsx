@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { CastEntry } from "@/lib/types";
 
 function initials(name: string) {
@@ -14,17 +14,20 @@ export function CastRow({ cast }: { cast: CastEntry[] }) {
   if (cast.length === 0) return null;
 
   return (
-    <div className="flex gap-4 overflow-x-auto pb-2">
+    <div className="flex gap-5 overflow-x-auto pb-2">
       {cast.map((member) => (
-        <div key={member.name} className="flex w-20 shrink-0 flex-col items-center gap-2 text-center">
-          <Avatar className="size-14">
-            <AvatarFallback className="bg-secondary text-sm font-medium">
+        <div key={member.name} className="flex w-24 shrink-0 flex-col items-center gap-2 text-center">
+          <Avatar className="size-16">
+            {member.photo_url && <AvatarImage src={member.photo_url} alt={member.name} />}
+            <AvatarFallback className="bg-secondary text-sm font-medium text-secondary-foreground">
               {initials(member.name)}
             </AvatarFallback>
           </Avatar>
-          <div>
-            <p className="truncate text-xs font-medium">{member.name}</p>
-            <p className="truncate text-[11px] text-muted-foreground">{member.character_name}</p>
+          <div className="w-full space-y-0.5">
+            <p className="truncate text-xs font-medium leading-tight">{member.name}</p>
+            <p className="line-clamp-2 text-[11px] leading-tight text-muted-foreground">
+              {member.character_name}
+            </p>
           </div>
         </div>
       ))}

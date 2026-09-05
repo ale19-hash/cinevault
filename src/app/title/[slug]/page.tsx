@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Clock, Globe2, Star, Tv2, User } from "lucide-react";
+import { Clock, Globe2, Tv2, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { TitlePoster } from "@/components/site/title-poster";
@@ -63,9 +63,7 @@ export default async function TitlePage({ params }: { params: Params }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1 text-base font-bold text-primary">
-              <Star className="size-4 fill-secondary text-secondary" /> {title.critic_score.toFixed(1)} critic score
-            </span>
+            <span className="text-base font-bold text-primary">{title.critic_score.toFixed(1)} critic score</span>
             <span>{title.release_year}</span>
             <span className="inline-flex items-center gap-1">
               <User className="size-4" /> {title.director}

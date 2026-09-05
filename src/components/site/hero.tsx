@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Tent, Star } from "lucide-react";
+import { Tent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TitlePoster } from "@/components/site/title-poster";
@@ -43,10 +43,7 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
             </p>
           )}
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1 font-bold text-primary">
-              <Star className="size-4 fill-secondary text-secondary" />
-              {spotlight.critic_score.toFixed(1)}
-            </span>
+            <span className="font-bold text-primary">{spotlight.critic_score.toFixed(1)}</span>
             <span>{spotlight.release_year}</span>
             <span>Dir. {spotlight.director}</span>
             <div className="flex gap-1">
