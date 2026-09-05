@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bebas_Neue } from "next/font/google";
+import { Geist, Geist_Mono, Bungee } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site/site-header";
@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const bebasNeue = Bebas_Neue({
+const bungee = Bungee({
   variable: "--font-heading",
   weight: "400",
   subsets: ["latin"],
@@ -25,14 +25,14 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: "CineVault — Movies & TV, curated",
   description:
-    "A browsable catalog of acclaimed movies and TV shows, backed by Supabase, with visitor reviews and personal favorites.",
+    "Step right up! A big-top catalog of acclaimed movies and TV shows, backed by Supabase, with visitor reviews and personal favorites.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bungee.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <ThemeProvider>

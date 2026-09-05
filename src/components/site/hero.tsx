@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Film, Star } from "lucide-react";
+import { Tent, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TitlePoster } from "@/components/site/title-poster";
@@ -10,11 +10,11 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
   const [spotlight, ...rest] = featured;
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10">
+    <section className="relative overflow-hidden border-b-4 border-primary">
       <div
         className="absolute inset-0 -z-10"
         style={{
-          background: `radial-gradient(1200px 500px at 15% -10%, hsl(${spotlight.hue} 55% 20%) 0%, transparent 60%), linear-gradient(180deg, hsl(${spotlight.hue} 40% 8%) 0%, var(--background) 100%)`,
+          background: `radial-gradient(1200px 500px at 15% -10%, hsl(${spotlight.hue} 60% 88%) 0%, transparent 60%), var(--background)`,
         }}
         aria-hidden="true"
       />
@@ -31,10 +31,10 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
         </div>
 
         <div className="flex flex-col justify-center gap-4">
-          <Badge className="w-fit gap-1 bg-amber-400/15 text-amber-300 hover:bg-amber-400/15">
-            <Film className="size-3" /> Spotlight pick
+          <Badge className="w-fit gap-1 bg-primary text-primary-foreground hover:bg-primary">
+            <Tent className="size-3" /> Center ring pick
           </Badge>
-          <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="font-heading text-3xl tracking-tight text-primary sm:text-5xl">
             {spotlight.name}
           </h1>
           {spotlight.tagline && (
@@ -43,8 +43,8 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
             </p>
           )}
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1 font-medium text-amber-300">
-              <Star className="size-4 fill-amber-300 text-amber-300" />
+            <span className="inline-flex items-center gap-1 font-bold text-primary">
+              <Star className="size-4 fill-secondary text-secondary" />
               {spotlight.critic_score.toFixed(1)}
             </span>
             <span>{spotlight.release_year}</span>
@@ -58,11 +58,11 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
             </div>
           </div>
           <div className="flex gap-3 pt-2">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-full">
               <Link href={`/title/${spotlight.slug}`}>View details</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="#browse">Browse the vault</Link>
+            <Button asChild variant="outline" size="lg" className="rounded-full">
+              <Link href="#browse">Step right up</Link>
             </Button>
           </div>
         </div>

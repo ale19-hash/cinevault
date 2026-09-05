@@ -35,7 +35,7 @@ export function TitlePoster({
   return (
     <div
       className={cn(
-        "relative aspect-[2/3] w-full overflow-hidden rounded-lg border border-white/10 bg-black/20 shadow-lg",
+        "relative aspect-[2/3] w-full overflow-hidden rounded-lg border-2 border-primary bg-muted shadow-lg",
         className
       )}
     >

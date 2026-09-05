@@ -14,13 +14,13 @@ export function TitleCard({ title }: { title: TitleSummary }) {
     >
       <div className="relative">
         <TitlePoster name={title.name} hue={title.hue} type={title.type} posterUrl={title.poster_url} />
-        <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-white/0 transition group-hover:ring-white/30 group-focus-visible:ring-2 group-focus-visible:ring-amber-400" />
+        <div className="absolute inset-0 rounded-lg ring-2 ring-inset ring-transparent transition group-hover:ring-primary/50 group-focus-visible:ring-secondary" />
         <RatingBadge score={title.critic_score} className="absolute left-2 top-2" />
         <FavoriteButton slug={title.slug} className="absolute right-2 top-2" />
       </div>
 
       <div className="mt-2 space-y-1">
-        <h3 className="truncate font-heading text-sm font-semibold leading-tight text-foreground group-hover:text-amber-300">
+        <h3 className="line-clamp-2 font-heading text-sm leading-tight tracking-wide text-foreground group-hover:text-primary">
           {title.name}
         </h3>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">

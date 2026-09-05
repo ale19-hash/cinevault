@@ -48,73 +48,75 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* "Big Top" palette: popcorn-box cream + circus-tent red, gold and navy. */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #fbf1de;
+  --foreground: #331c10;
+  --card: #ffffff;
+  --card-foreground: #331c10;
+  --popover: #ffffff;
+  --popover-foreground: #331c10;
+  --primary: #d5222f;
+  --primary-foreground: #fff8ec;
+  --secondary: #f6b93b;
+  --secondary-foreground: #331c10;
+  --muted: #f1e2c2;
+  --muted-foreground: #8a6e4b;
+  --accent: #1f4e79;
+  --accent-foreground: #fff8ec;
+  --destructive: #b3261e;
+  --border: #e9cfa6;
+  --input: #e9cfa6;
+  --ring: #f6b93b;
+  --chart-1: #d5222f;
+  --chart-2: #f6b93b;
+  --chart-3: #1f4e79;
+  --chart-4: #8a6e4b;
+  --chart-5: #331c10;
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #331c10;
+  --sidebar-primary: #d5222f;
+  --sidebar-primary-foreground: #fff8ec;
+  --sidebar-accent: #f1e2c2;
+  --sidebar-accent-foreground: #331c10;
+  --sidebar-border: #e9cfa6;
+  --sidebar-ring: #f6b93b;
 }
 
+/* Circus-at-night variant, kept for parity even though the site is forced light. */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #241512;
+  --foreground: #f6e9d2;
+  --card: #33201a;
+  --card-foreground: #f6e9d2;
+  --popover: #33201a;
+  --popover-foreground: #f6e9d2;
+  --primary: #f2545b;
+  --primary-foreground: #241512;
+  --secondary: #f6b93b;
+  --secondary-foreground: #241512;
+  --muted: #3a2620;
+  --muted-foreground: #c9ae8d;
+  --accent: #4a8fc2;
+  --accent-foreground: #241512;
+  --destructive: #e5484d;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: #f6b93b;
+  --chart-1: #f2545b;
+  --chart-2: #f6b93b;
+  --chart-3: #4a8fc2;
+  --chart-4: #c9ae8d;
+  --chart-5: #f6e9d2;
+  --sidebar: #33201a;
+  --sidebar-foreground: #f6e9d2;
+  --sidebar-primary: #f2545b;
+  --sidebar-primary-foreground: #241512;
+  --sidebar-accent: #3a2620;
+  --sidebar-accent-foreground: #f6e9d2;
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: #f6b93b;
 }
 
 @layer base {
@@ -133,4 +135,28 @@
 .overflow-x-auto {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+}
+
+/* Candy-stripe awning, used behind the header and hero like a circus tent canopy. */
+.big-top-stripes {
+  background-image: repeating-linear-gradient(
+    115deg,
+    var(--primary) 0px,
+    var(--primary) 22px,
+    #fff8ec 22px,
+    #fff8ec 44px
+  );
+}
+
+/* Scalloped tent-edge trim, drawn as a row of semicircles along the bottom edge. */
+.tent-scallop {
+  height: 14px;
+  background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--background) 10.5px);
+  background-size: 20px 14px;
+  background-repeat: repeat-x;
+}
+
+/* Dashed perforation, like the tear-line on a ticket stub. */
+.ticket-perforation {
+  border-left: 2px dashed color-mix(in oklch, var(--foreground) 30%, transparent);
 }

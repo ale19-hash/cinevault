@@ -13,11 +13,11 @@ export function ReviewList({ reviews }: { reviews: Review[] }) {
   return (
     <ul className="space-y-4">
       {reviews.map((review) => (
-        <li key={review.id} className="rounded-lg border border-white/10 bg-card/50 p-4">
+        <li key={review.id} className="rounded-lg border border-border bg-card p-4">
           <div className="flex items-center justify-between gap-3">
             <p className="font-medium">{review.author_name}</p>
-            <span className="inline-flex items-center gap-1 text-sm font-semibold text-amber-300">
-              <Star className="size-3.5 fill-amber-300 text-amber-300" />
+            <span className="inline-flex items-center gap-1 text-sm font-bold text-primary">
+              <Star className="size-3.5 fill-secondary text-secondary" />
               {review.rating.toFixed(1)}
             </span>
           </div>
