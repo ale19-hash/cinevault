@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** A little ticket stub — dashed tear-line and all — showing the critic score. */
@@ -11,10 +12,11 @@ export function RatingBadge({
   return (
     <span
       className={cn(
-        "ticket-perforation inline-flex items-center rounded-r-md bg-secondary py-0.5 pl-1.5 pr-2 text-xs font-bold text-secondary-foreground shadow-sm",
+        "ticket-perforation inline-flex items-center gap-1 rounded-r-md bg-secondary py-0.5 pl-1.5 pr-2 text-xs font-bold text-secondary-foreground shadow-sm",
         className
       )}
     >
+      <Star className="size-3 fill-primary text-primary" />
       {score.toFixed(1)}
     </span>
   );
