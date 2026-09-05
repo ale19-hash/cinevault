@@ -84,7 +84,9 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
               <Link href={`/title/${spotlight.slug}`}>View details</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <Link href="#browse">Step right up</Link>
+              {/* Plain anchor, not next/link: Link's client-side transition scrolls to
+                  the top of the page even for a same-page hash, which cancels the jump. */}
+              <a href="#browse">Step right up</a>
             </Button>
           </div>
         </div>
