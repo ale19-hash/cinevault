@@ -15,7 +15,7 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(1200px 500px at 15% -10%, color-mix(in oklch, var(--secondary) 45%, var(--background)) 0%, transparent 60%), var(--background)",
+            "radial-gradient(1600px 900px at 20% -20%, color-mix(in oklch, var(--secondary) 14%, var(--background)) 0%, var(--background) 75%)",
         }}
         aria-hidden="true"
       />
