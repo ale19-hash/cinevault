@@ -1,13 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Tent, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TitlePoster } from "@/components/site/title-poster";
+import { cn } from "@/lib/utils";
 import type { TitleSummary } from "@/lib/types";
 
 export function Hero({ featured }: { featured: TitleSummary[] }) {
+  const [selected, setSelected] = useState(0);
+
   if (featured.length === 0) return null;
-  const [spotlight, ...rest] = featured;
+  const spotlight = featured[selected % featured.length];
 
   return (
     <section className="relative overflow-hidden border-b-4 border-primary">
@@ -21,7 +27,10 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
       />
 
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[220px_1fr] md:py-16">
-        <div className="hidden w-full max-w-[220px] md:block">
+        <Link
+          href={`/title/${spotlight.slug}`}
+          className="hidden w-full max-w-[220px] md:block"
+        >
           <TitlePoster
             name={spotlight.name}
             hue={spotlight.hue}
@@ -29,7 +38,7 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
             posterUrl={spotlight.poster_url}
             size="lg"
           />
-        </div>
+        </Link>
 
         <div className="flex flex-col justify-center gap-4">
           <Badge className="w-fit gap-1 bg-primary text-primary-foreground hover:bg-primary">
@@ -69,18 +78,41 @@ export function Hero({ featured }: { featured: TitleSummary[] }) {
         </div>
       </div>
 
-      {rest.length > 0 && (
+      {featured.length > 1 && (
         <div className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
           <div className="flex gap-4 overflow-x-auto pb-2">
-            {rest.map((t) => (
-              <Link
+            {featured.map((t, i) => (
+              <button
                 key={t.id}
-                href={`/title/${t.slug}`}
-                className="w-24 shrink-0 transition hover:-translate-y-1 sm:w-28"
+                type="button"
+                onClick={() => setSelected(i)}
+                aria-current={i === selected}
+                aria-label={`Show ${t.name} in the center ring`}
+                className={cn(
+                  "w-24 shrink-0 text-left transition hover:-translate-y-1 sm:w-28",
+                  i === selected && "-translate-y-1"
+                )}
               >
-                <TitlePoster name={t.name} hue={t.hue} type={t.type} posterUrl={t.poster_url} size="sm" />
-                <p className="mt-1 truncate text-xs text-muted-foreground">{t.name}</p>
-              </Link>
+                <TitlePoster
+                  name={t.name}
+                  hue={t.hue}
+                  type={t.type}
+                  posterUrl={t.poster_url}
+                  size="sm"
+                  className={cn(
+                    "transition ring-offset-2 ring-offset-background",
+                    i === selected ? "ring-2 ring-primary" : "opacity-80"
+                  )}
+                />
+                <p
+                  className={cn(
+                    "mt-1 truncate text-xs",
+                    i === selected ? "font-medium text-primary" : "text-muted-foreground"
+                  )}
+                >
+                  {t.name}
+                </p>
+              </button>
             ))}
           </div>
         </div>
